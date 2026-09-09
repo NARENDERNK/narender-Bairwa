@@ -118,6 +118,23 @@
         </div>
       </main>
     </div>
+    <div class="gallery-modal" id="gallery-modal" aria-hidden="true">
+      <div class="gallery-dialog" role="dialog" aria-modal="true" aria-labelledby="gallery-title">
+        <div class="gallery-toolbar">
+          <div><p class="eyebrow">YOUR COLLECTION</p><h2 id="gallery-title">Wedding memories</h2></div>
+          <button class="close-button" id="close-gallery" aria-label="Close gallery">×</button>
+        </div>
+        <div class="gallery-actions">
+          <div class="gallery-filters" role="tablist" aria-label="Gallery filters">
+            <button class="filter-button active" data-filter="all">All photos</button>
+            <button class="filter-button" data-filter="favorites">Favorites</button>
+            <button class="filter-button" data-filter="selected">Selected</button>
+          </div>
+          <button class="download-button" id="download-button">⇩ Download selected</button>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </div>
     <div class="toast" id="toast" role="status"></div>
     <script src="script.js"></script>
   </body>

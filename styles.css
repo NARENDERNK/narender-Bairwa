@@ -128,6 +128,24 @@ footer { display: flex; justify-content: space-between; padding: 49px 0 15px; co
 footer em { color: var(--muted); font-family: "Playfair Display", serif; font-size: 11px; letter-spacing: 0; }
 .toast { position: fixed; right: 24px; bottom: 24px; z-index: 10; padding: 13px 18px; color: white; border-radius: 4px; background: #302b27; box-shadow: var(--shadow); font-size: 12px; transform: translateY(100px); transition: .3s ease; }
 .toast.show { transform: translateY(0); }
+.gallery-modal { position: fixed; inset: 0; z-index: 20; display: grid; place-items: center; padding: 24px; background: rgba(32, 27, 23, .7); opacity: 0; pointer-events: none; transition: opacity .25s; }
+.gallery-modal.open { opacity: 1; pointer-events: auto; }
+.gallery-dialog { width: min(940px, 100%); max-height: min(760px, 92vh); overflow: auto; padding: 30px; border-radius: 5px; background: var(--white); box-shadow: 0 30px 80px rgba(0,0,0,.25); transform: translateY(15px); transition: transform .25s; }
+.gallery-modal.open .gallery-dialog { transform: translateY(0); }
+.gallery-toolbar, .gallery-actions { display: flex; align-items: center; justify-content: space-between; }
+.gallery-toolbar h2 { margin: 0; font-size: 29px; }
+.close-button { color: var(--muted); font-size: 28px; line-height: 1; }
+.gallery-actions { gap: 16px; margin: 24px 0 20px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.gallery-filters { display: flex; gap: 6px; }
+.filter-button, .download-button { padding: 8px 12px; border-radius: 3px; color: var(--muted); font-size: 10px; }
+.filter-button.active { color: var(--accent-dark); background: #f4ebe5; font-weight: 700; }
+.download-button { color: white; background: var(--accent-dark); }
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.gallery-item { position: relative; min-height: 160px; overflow: hidden; border-radius: 3px; background-size: cover; background-position: center; }
+.gallery-item.hidden { display: none; }
+.gallery-item button { position: absolute; top: 9px; right: 9px; display: grid; place-items: center; width: 29px; height: 29px; color: white; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; background: rgba(30,24,20,.35); font-size: 16px; }
+.gallery-item button.active { color: #d9927c; background: white; }
+.gallery-item.selected::after { position: absolute; right: 9px; bottom: 9px; width: 19px; height: 19px; content: "✓"; color: white; border-radius: 50%; background: var(--accent); font-size: 12px; line-height: 19px; text-align: center; }
 body.dark { --ink: #eee8e1; --muted: #a59d95; --soft: #211e1c; --line: #3a3530; --sidebar: #292521; --white: #2d2824; --shadow: 0 18px 45px rgba(0,0,0,.18); }
 body.dark .topbar { background: rgba(41,37,33,.8); }
 body.dark .profile-card, body.dark .panel { background: var(--white); }
@@ -156,4 +174,10 @@ body.dark .notification-button i { border-color: var(--soft); }
   .lower-grid { grid-template-columns: 1fr; margin-top: 39px; }
   footer { display: block; line-height: 2; text-align: center; }
   footer em { display: block; }
+  .gallery-dialog { padding: 22px 16px; }
+  .gallery-actions { display: block; }
+  .gallery-filters { margin-bottom: 12px; }
+  .download-button { width: 100%; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item { min-height: 145px; }
 }
